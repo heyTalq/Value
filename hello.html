@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Value your property</title>
+       <link rel="stylesheet" media="screen" href ="/static/bootstrap.min.css">
+       <link rel="stylesheet" href="/static/bootstrap-theme.min.css">
+       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+ 
+    </head>
+
+   <!-- <body>
+	<body class = "fit" style="background-image: url( {{url_for('static', filename='img/home.jpg') }} )"> 
+	-->
+	<style>
+.appBg {
+background-image: url("http://cdn.home-designing.com/wp-content/uploads/2016/02/orange-and-black-interior-artwork-ideas.jpg");
+background-repeat:no-repeat;
+-webkit-background-size: 100%;
+-moz-background-size: 100% ;
+-o-background-size: 100% ;
+background-size: 100% ;
+  
+ }
+</style>
+
+<body class=appBg>  
+</style>
+
+<body class=appBg>
+
+<div class="container">
+ 
+ 
+  <h2>Value your property</h2>
+  <form  action="" method="post" role="form">
+    {{ form.csrf }}
+    <div class="form-group">
+      <label for="zipcode">Zip:</label>
+      <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="What's your zipcode?">
+      <br>
+      <label for="sfLiving">Living:</label>
+      <input type="text" class="form-control" id="sfLiving" name="sfLiving" placeholder="Enter your square feet living space">
+      <br>
+      <label for="sfLot">Lot:</label>
+      <input type="text" class="form-control" id="sfLot" name="sfLot" placeholder="Enter your lot size">
+      <br>
+      <label for="numBed">Bed:</label>
+      <input type="text" class="form-control" id="numBed" name="numBed" placeholder="Enter number of bedrooms">
+      <br>
+      <label for="numBath">Bath:</label>
+      <input type="text" class="form-control" id="numBath" name="numBath" placeholder="Enter number of bathrooms">
+      <br>
+      <label for="floors">Floors:</label>
+      <input type="text" class="form-control" id="floors" name="floors" placeholder="Enter number of floors">
+      <br>
+      <label for="water">Water:</label>
+      <input type="text" class="form-control" id="water" name="water" placeholder="Is the property on a waterfront?">
+      <br>
+      <label for="year">Year:</label>
+      <input type="text" class="form-control" id="year" name="year" placeholder="Enter year built">
+    
+ 
+ 
+    </div>
+    <button type="submit" class="btn btn-success">Value!</button>
+  </form>
+ 
+  <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+ 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+ 
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+ 
+</div>
+<br>            
+</div>
+</div>
+</body>
+</html>
